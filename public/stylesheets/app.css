@@ -1,0 +1,67 @@
+#fb-root { display: none; }
+
+.visible { display: block; }
+
+
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.top-bar { 
+	background-color: #333333;
+	background-color: rgba(0,0,0,0.75);
+	z-index: 2;
+}
+
+#header { 
+	background: url(../images/lifestyle-hero-lg.jpg) no-repeat center center;
+	background-size: cover;
+	position: relative;
+	margin-top: -45px;
+	z-index: 1;
+}
+
+#header .default {
+	margin-top: 110px;
+}
+
+#header .default h1 { color: #FFF; font-size: 60px; }
+#header .default h3 { color: #FFF; font-weight: 300; margin-top: 20px; font-size: 18px; }
+#header .default p {color: #FFF; }
+
+#header .default .button {
+	margin-top: 30px; 
+	background-color: #96d600;
+	border-radius: 30px;
+	text-transform: uppercase;
+	font-size: 1.3rem;
+}
+
+.arrow {
+	width: 60px;
+	height: 60px;
+	background: url(../images/arrow-big.png);
+	cursor: pointer;
+	display: block;
+	margin: 0 auto 30px;
+}
+
+h1 {
+	font-size: 3.75rem;
+	line-height: 1.2;
+	font-weight: 700;
+}
+
+#SportTab .Bouffe { display: none; }
+#SportTab .Culture { display: none; }
+#SportTab .Festif { display: none; }
+#RepasTab .Sport { display: none; }
+#RepasTab .Culture { display: none; }
+#RepasTab .Festif { display: none; }
+#CultureTab .Sport { display: none; }
+#CultureTab .Bouffe { display: none; }
+#CultureTab .Festif { display: none; }
+#FestifTab .Sport { display: none; }
+#FestifTab .Bouffe { display: none; }
+#FestifTab .Culture { display: none; }
+

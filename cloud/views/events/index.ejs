@@ -1,0 +1,59 @@
+<!-- Include the header partial -->
+<% include ../_header %>
+
+<!-- content -->
+
+<header id="header">
+  <div class="row">
+    <div class="large-12 columns text-center">
+      <h1>Bienvenue sur Shable !</h1>
+      <h3>Shable est une application de partage d’activité entre amis.</h3>
+    </div>
+  </div>
+</header>
+
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#">Shable</a></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul class="left">
+      <li><a href="/">Accueil</a></li>
+      <li><a href='#2'>Recherche</a></li>
+      <li><a href='/planifier'>Planifier</a></li>
+      <li><a href='#4'>Rejoindre</a></li>
+      <li><a href='#5'>Message</a></li>
+      <li><a href='#6'>Profil</a></li>
+      <li><a href='#7'>Paramètre</a></li>
+    </ul>
+  </section>
+</nav>
+
+<div class="row">
+  <div class="large-3 columns">
+      <div class="picture">
+          <% var hash = hex_md5(userEmail); %>
+        	<img src=<%= 'https://secure.gravatar.com/avatar/' + hash + '?size=220&default=https%3A%2F%2Fwww.parse.com%2Fimages%2Faccounts%2Fno_avatar.png' %> />  </div>
+    	<div class="username"><%= userDisplayName %></div>
+    	<div class="blog_description"><%= userDescription %></div>
+  </div>
+    	
+  <div class="large-9 columns">
+    	<% events.forEach(function(events) { %>
+    		<div class="events_link">
+  	  		<h1><a href="<%= '/events/' + events.id %>"><%= events.get("title") %></a></h1>
+  	  		<h5><%= formatTime(events.createdAt) %></h5>
+  	  		<p><%- snippet(events.get("body"), 210) %></p>
+          <p><%= events.get("author") %></p>
+    		</div>
+      <% }) %>
+  </div>
+</div>
+
+<!-- Include the footer partial -->
+<% include ../_footer %>

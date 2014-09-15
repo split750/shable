@@ -1,0 +1,99 @@
+<!-- Include the header partial -->
+<% include ../_header %>
+
+<!-- content -->
+
+<header id="headerPage">
+  <div class="row">
+    <div class="large-12 columns text-center">
+      <h1>Recherchez les activités près de vous</h1>
+      <h3></h3>
+      <p>Utilisez le formulaire ci-dessous pour filtrer les activités.</p>
+    </div>
+  </div>
+</header>
+
+<div class="row">
+  <div class="large-12 columns text-center">
+    <hr/>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-4 columns">
+    <form class='new_post' method='post' action='/posts' id='theme-sport'>
+
+      <div class='row'>
+      <input class='post_formtheme hide' name='formtheme' value='Sport' />
+        <div class='large-12 columns'>  
+          <label>Thème</label>
+          <select class='post_theme' name='formtheme' id='theme-select'>
+            <option value="Sport">Sport</option>
+            <option value="Bouffe">Repas</option>
+            <option value="Culture">Culture</option>
+            <option value="Festif">Festif</option>
+          </select>
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='large-12 columns'>  
+          <label>Visibilité</label>
+          <select class='post_visibility' name='visibility' id='visibility-select'>
+            <option value="Friend">Amis</option>
+            <option value="Public">Public</option>
+            <option value="Private">Privé</option>
+            <option value="Invit">Invitation</option>
+          </select>
+        </div>
+      </div>
+    
+      <div class='row'>
+        <div class='large-12 columns'>  
+          <label>Sélectionez votre créneau</label>
+          <input type='datetime' class='post_time' name='time' />
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='large-12 columns'>  
+          <label>Indiquez le lieu</label>
+          <input type='text' class='post_place' name='place' />
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class='large-12 columns'>  
+          <input class='button' type='submit' value='Rechercher' />
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+
+  <div class="large-8 columns">
+      <% posts.forEach(function(post) { %>
+        <div class="post_link panel <%= post.get("formtheme") %>">
+          <h1><a href="<%= '/posts/' + post.id %>"><%= post.get("title") %></a></h1>
+          <h5><%= formatTime(post.createdAt) %></h5>
+          <p><%- snippet(post.get("type"), 210) %></p>
+          <p><%= post.get("place") %></p>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
+
+
+<script type='text/javascript'>
+var e = document.getElementById("visibility-select");
+var visibility = e.options[e.selectedIndex].value;
+
+var f = document.getElementById("theme-select");
+var type = f.options[f.selectedIndex].value;
+
+</script>
+
+<!-- Include the footer partial -->
+<% include ../_footer %>

@@ -1,0 +1,37 @@
+<% include ../_header %>
+
+<form class='new_events' method='post' action='/events'>
+  <div class='row'>
+    <div class='large-4 columns'>
+      <label>Title</label>
+      <input class='events_title' name='title' />
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class="large-4 columns">
+      <label>Thème</label>
+      <select>
+        <option name='theme' value="Sport">Sport</option>
+        <option name='theme' value="Bouffe">Bouffe</option>
+        <option name='theme' value="Culture">Culture</option>
+        <option name='theme' value="Festif">Festif</option>
+      </select>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='large-4 columns'>
+      <label>Body</label>
+      <textarea class='events_body' name='body'></textarea>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='large-4 columns'>
+      <input class='button' type='submit' value='Créer' />
+    </div>
+  </div>
+</form>
+
+<% include ../_footer %>
